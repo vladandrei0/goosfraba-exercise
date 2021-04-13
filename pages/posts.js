@@ -44,6 +44,20 @@ export default function Posts() {
       <div>
          <h2>Posturi din 2019</h2>
          <BarGraph data={data} monthNames={monthNames} />
+         <table>
+            <tr>
+               <th>Month</th>
+               <th>Posts / month</th>
+            </tr>
+            {data.map(d => {
+               return (
+                  <tr>
+                     <td>{d.month}</td>
+                     <td>{d.count}</td>
+                  </tr>
+               )
+            })}
+         </table>
       </div>
    )
 }
