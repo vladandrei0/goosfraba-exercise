@@ -5,11 +5,9 @@ import { Group } from '@visx/group';
 import { Bar } from '@visx/shape';
 import { scaleLinear, scaleBand, scaleTime, coerceNumber } from '@visx/scale';
 import { AxisLeft, AxisBottom } from '@visx/axis';
-import Example from './visx'
 
 // i used graphql request
 const endpoint = "https://fakerql.goosfraba.ro/graphql"
-const relevant_number_of_posts = 5
 
 export default function Posts() {
 
@@ -44,15 +42,12 @@ export default function Posts() {
    // const filtered = data.map(post => console.log(post))
    return (
       <div>
-         <p>oposts</p>
+         <h2>Posturi din 2019</h2>
          <BarGraph data={data} monthNames={monthNames} />
       </div>
    )
 }
 
-
-
-// Finally we'll embed it all in an SVG
 function BarGraph({ data, monthNames }) {
    const width = 1000;
    const height = 500;
@@ -115,14 +110,11 @@ function BarGraph({ data, monthNames }) {
                      y={yMax - barHeight}
                      height={barHeight}
                      width={xScale.bandwidth()}
-                     fill="#fc2e1c"
+                     fill="teal"
 
                   />
                   <AxisBottom top={yMax}
                      scale={timeScale}
-                     label='month' numTicks={12}
-                     tickFormat={function tickFormat(d) { return d.month }}
-                     tickValues={monthNames}
                   />
                </Group>
             );
